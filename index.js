@@ -1,9 +1,27 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
-}
+  const seenNumbers = new Set();
 
+  for (let i = 0; i < array.length; i++) {
+    const currentNumber = array[i];
+    const complement = target - currentNumber;
+
+    if (seenNumbers.has(complement)) {
+      return true; // Found a pair that adds up to the target
+    }
+
+    seenNumbers.add(currentNumber);
+  }
+
+  return false; // No pair adds up to the target
+}
 /* 
   Write the Big O time complexity of your function here
+  //function hasTargetSum(array, target) {
+//   for (let i = 0; i < array.length; i++) {
+//     const complement = target - array[i];
+//     for (let j = i + 1; j < array.length; j++) {
+//       if (array[j] === complement) return true;
 */
 
 /* 
